@@ -1,0 +1,114 @@
+﻿@model GestionViager.Models.Lots
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lots</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.surface)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surface)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.etage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.etage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nature_lot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nature_lot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.carrez)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carrez)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.balcon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.balcon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.surface_balcon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surface_balcon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.terrasse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.terrasse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.surface_terrasse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surface_terrasse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.jardin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jardin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.surface_jardin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surface_jardin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.commentaire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.commentaire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Propriete.nom_Commune)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Propriete.nom_Commune)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

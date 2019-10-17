@@ -1,0 +1,120 @@
+﻿@model GestionViager.Models.Lots
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Lots</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.surface)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surface)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.etage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.etage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nature_lot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nature_lot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.carrez)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carrez)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.balcon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.balcon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.surface_balcon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surface_balcon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.terrasse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.terrasse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.surface_terrasse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surface_terrasse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.jardin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jardin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.surface_jardin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surface_jardin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.commentaire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.commentaire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Propriete.nom_Commune)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Propriete.nom_Commune)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

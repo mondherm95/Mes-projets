@@ -1,0 +1,99 @@
+﻿@model IEnumerable<GestionViager.Models.Lots>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.surface)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.etage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nature_lot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carrez)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.balcon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.surface_balcon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.terrasse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.surface_terrasse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jardin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.surface_jardin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.commentaire)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Propriete.nom_Commune)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.surface)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.etage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nature_lot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.carrez)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.balcon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.surface_balcon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.terrasse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.surface_terrasse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jardin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.surface_jardin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.commentaire)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Propriete.nom_Commune)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

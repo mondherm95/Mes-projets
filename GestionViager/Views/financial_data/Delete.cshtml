@@ -1,0 +1,88 @@
+﻿@model GestionViager.Models.financial_data
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>financial_data</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.vvl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vvl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prix_m)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prix_m)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vvo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vvo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.decote_occupation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.decote_occupation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.decote_totale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.decote_totale)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bouquet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bouquet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bouquet_vvl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bouquet_vvl)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

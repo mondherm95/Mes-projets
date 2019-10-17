@@ -1,0 +1,311 @@
+﻿@model IEnumerable<GestionViager.Models.table_>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@{
+    Layout = null;
+    WebGrid webGrid = new WebGrid(source: Model , canPage: true, canSort: false);
+    var id = ViewData["id"];
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        .Grid {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+            .Grid th {
+                background-color: #F7F7F7;
+                font-weight: bold;
+            }
+
+            .Grid th, .Grid td {
+                padding: 5px;
+                width: 150px;
+                border: 1px solid #ccc;
+            }
+
+            .Grid, .Grid table td {
+                border: 0px solid #ccc;
+            }
+
+                .Grid th a, .Grid th a:visited {
+                    color: #333;
+                }
+    </style>
+</head>
+<body>
+    @webGrid.GetHtml(
+        htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+        columns: webGrid.Columns(
+               webGrid.Column(header: " id", format: @<span class="label">@item.id</span>, style: "id"),
+
+              webGrid.Column(header: "Cible", format: @<span>
+                <span class="label">@item.Cible</span>
+                <input class="text" type="text" value="@item.Cible" style="display:none" />
+            </span>, style: "Cible"),
+
+
+
+     webGrid.Column(header: "HOMME___âge", format: @<span>
+                <span class="label">@item.HOMME___âge</span>
+                <input class="text" type="text" value="@item.HOMME___âge" style="display:none" />
+            </span>, style: "HOMME___âge"),
+                
+     webGrid.Column(header: "FEMME___âge", format: @<span>
+                <span class="label">@item.FEMME___âge</span>
+                <input class="text" type="text" value="@item.FEMME___âge" style="display:none" />
+            </span>, style: "FEMME___âge"),
+
+              webGrid.Column(header: "Espérance", format: @<span>
+                <span class="label">@item.Espérance</span>
+                <input class="text" type="text" value="@item.Espérance" style="display:none" />
+            </span>, style: "Espérance"),
+
+             webGrid.Column(header: "tx_rente", format: @<span>
+                <span class="label">@item.tx_rente</span>
+                <input class="text" type="text" value="@item.tx_rente" style="display:none" />
+            </span>, style: "tx_rente"),
+
+             webGrid.Column(header: "dt_us_", format: @<span>
+                <span class="label">@item.dt_us_</span>
+                <input class="text" type="text" value="@item.dt_us_" style="display:none" />
+            </span>, style: "dt_us_"),
+
+
+    webGrid.Column(format:@<span class="link">
+                 <a class="Edit" href="javascript:;">Edit</a>
+                 <a class="Update" href="javascript:;" style="display:none">Update</a>
+                <a class="Cancel" href="javascript:;" style="display:none">Cancel</a>
+                <a class="Delete" href="javascript:;">Delete</a>
+            </span> )))
+    <br />
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td style="width: 150px">
+                Cible:<br />
+                <input type="text" id="Cible" style="width:140px" />
+            </td>
+            <td style="width: 150px">
+                HOMME___âge:<br />
+                <input type="text" id="txtName" style="width:140px" />
+            </td>
+            <td style="width: 150px">
+                FEMME___âge:<br />
+                <input type="text" id="txtCountry" style="width:140px" />
+            </td>
+            <td style="width: 150px">
+                Espérance:<br />
+                <input type="text" id="Espérance" style="width:140px" />
+            </td>
+
+            <td style="width: 150px">
+                tx_rente:<br />
+                <input type="text" id="tx_rente" style="width:140px" />
+            </td>
+
+            <td style="width: 150px">
+                dt_us_:<br />
+                <input type="text" id="dt_us_" style="width:140px" />
+            </td>
+            <td style="width: 100px">
+                <br />
+                <input type="button" id="btnAdd" value="Add" />
+            </td>
+        </tr>
+    </table>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var row = $("#WebGrid TBODY tr:eq(0)");
+            if ($("#WebGrid TBODY tr").length > 1) {
+                row.remove();
+            } else {
+                row.find(".label").html("");
+                row.find(".text").val("");
+                row.find(".link").hide();
+            }
+        });
+        function AppendRow(row, id, Cible, HOMME___âge, FEMME___âge, Espérance, tx_rente, dt_us_) {
+            //Bind CustomerId.
+            
+            //Bind Name.
+            $(".Cible", row).find(".label").html(Cible);
+            $(".Cible", row).find(".text").val(Cible);
+
+            //Bind Name.
+            $(".HOMME___âge", row).find(".label").html(HOMME___âge);
+            $(".HOMME___âge", row).find(".text").val(HOMME___âge);
+
+
+
+            //Bind Country.
+            $(".FEMME___âge", row).find(".label").html(FEMME___âge);
+            $(".FEMME___âge", row).find(".text").val(FEMME___âge);
+
+            //Bind Name.
+            $(".Espérance", row).find(".label").html(Espérance);
+            $(".Espérance", row).find(".text").val(Espérance);
+
+            $(".tx_rente", row).find(".label").html(tx_rente);
+            $(".tx_rente", row).find(".text").val(tx_rente);
+
+            //Bind Name.
+            $(".dt_us_", row).find(".label").html(dt_us_);
+            $(".dt_us_", row).find(".text").val(dt_us_);
+
+            $(".id", row).find(".label").html(id);
+            $(".id", row).find(".text").val(id);
+
+
+            row.find(".link").show();
+            $("#WebGrid TBODY").append(row);
+        };
+
+        //Add event handler.
+        $("body").on("click", "#btnAdd", function () {
+    
+
+
+            var customer = {};
+           
+            customer.Cible = Cible.value;
+            customer.HOMME___âge = txtName.value;
+            alert(txtName.value);
+            customer.FEMME___âge = txtCountry.value;
+            customer.Espérance = Espérance.value;
+            customer.tx_rente = tx_rente.value;
+            customer.dt_us_ = dt_us_.value;
+
+            $.ajax({
+                type: "POST",
+                url: "/table_/Inserer?id=@id",
+                data: '{customer:' + JSON.stringify(customer) + '} ',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+                    var row = $("#WebGrid TBODY tr:last-child").clone();
+                    if (row.find(".label").is(":empty")) {
+                        $("#WebGrid TBODY tr:last-child").remove();
+                    }
+                     AppendRow(row, r.id, r.Cible, r.HOMME___âge, r.FEMME___âge, r.Espérance, r.tx_rente, r.dt_us_ ) 
+
+                    txtName.val("");
+                    txtCountry.val("");
+                }
+            });
+        });
+
+        //Edit event handler.
+        $("body").on("click", "#WebGrid TBODY .Edit", function () {
+            var row = $(this).closest("tr");
+            $("td", row).each(function () {
+                if ($(this).find(".text").length > 0) {
+                    $(this).find(".text").show();
+                    $(this).find(".label").hide();
+                }
+            });
+            row.find(".Update").show();
+            row.find(".Cancel").show();
+            row.find(".Delete").hide();
+            $(this).hide();
+        });
+
+        //Update event handler.
+        $("body").on("click", "#WebGrid TBODY .Update", function () {
+            var row = $(this).closest("tr");
+            $("td", row).each(function () {
+                if ($(this).find(".text").length > 0) {
+                    var span = $(this).find(".label");
+                    var input = $(this).find(".text");
+                    span.html(input.val());
+                    span.show();
+                    input.hide();
+                }
+            });
+            row.find(".Edit").show();
+            row.find(".Delete").show();
+            row.find(".Cancel").hide();
+            $(this).hide();
+
+            var customer = {};
+            customer.id = row.find(".id").find(".label").html();
+            customer.Cible = row.find(".Cible").find(".label").html();
+            customer.HOMME___âge = row.find(".HOMME___âge").find(".label").html();
+            customer.FEMME___âge = row.find(".FEMME___âge").find(".label").html();
+            customer.Espérance = row.find(".Espérance").find(".label").html();
+
+            customer.tx_rente = row.find(".tx_rente").find(".label").html();
+
+            customer.dt_us_ = row.find(".dt_us_").find(".label").html();
+
+            $.ajax({
+                type: "POST",
+                url: "/table_/UpdateCustomer?id=@id",
+                data: '{customer:' + JSON.stringify(customer) +'} ',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            });
+        });
+
+        //Cancel event handler.
+        $("body").on("click", "#WebGrid TBODY .Cancel", function () {
+            var row = $(this).closest("tr");
+            $("td", row).each(function () {
+                if ($(this).find(".text").length > 0) {
+                    var span = $(this).find(".label");
+                    var input = $(this).find(".text");
+                    input.val(span.html());
+                    span.show();
+                    input.hide();
+                }
+            });
+            row.find(".Edit").show();
+            row.find(".Delete").show();
+            row.find(".Update").hide();
+            $(this).hide();
+        });
+
+        //Delete event handler.
+        $("body").on("click", "#WebGrid TBODY .Delete", function () {
+            if (confirm("Do you want to delete this row?")) {
+                var row = $(this).closest("tr");
+                var id = row.find(".label").html();
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/DeleteCustomer",
+                    data: '{id: ' + id + '}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if ($("#WebGrid TBODY tr").length == 1) {
+                            row.find(".label").html("");
+                            row.find(".text").val("");
+                            row.find(".link").hide();
+                        } else {
+                            row.remove();
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

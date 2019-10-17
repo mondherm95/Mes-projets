@@ -1,0 +1,179 @@
+﻿@model IEnumerable<GestionViager.Models.version>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@{
+    Layout = null;
+    WebGrid webGrid = new WebGrid(source: Model, canPage: true, canSort: false);
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Versions des Tables de Daubry</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        .Grid {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+            .Grid th {
+                background-color: #F7F7F7;
+                font-weight: bold;
+            }
+
+            .Grid th, .Grid td {
+                padding: 5px;
+                width: 150px;
+                border: 1px solid #ccc;
+            }
+
+            .Grid, .Grid table td {
+                border: 0px solid #ccc;
+            }
+
+                .Grid th a, .Grid th a:visited {
+                    color: #333;
+                }
+    </style>
+</head>
+<body>
+    @webGrid.GetHtml(
+        htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+        columns: webGrid.Columns(
+               webGrid.Column( header: " id", format: @<span class="label">@item.id</span>, style: "id"),
+                 webGrid.Column(header: "version1", format: @<span>
+                <span class="label">@item.version1</span>
+                <input class="text" type="text" value="@item.version1" style="display:none" />
+            </span>, style: "version1"),
+                
+                 webGrid.Column(format:@<span class="link">
+                <a class="show" href="javascript:;">show</a>
+                <a class="update" href="javascript:;" style="display:none">update</a>
+                <a class="Cancel" href="javascript:;" style="display:none">Cancel</a>
+            </span> )))
+    <br />
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td style="width: 150px">
+                Nom de la version:<br />
+                <input type="text" id="txtCountry" style="width:140px" />
+            </td>
+            <td style="width: 100px">
+                <br />
+                <input type="button" id="btnAdd" value="Ajouter" />
+            </td>
+        </tr>
+    </table>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+    <script type="text/javascript">
+      
+        function AppendRow(row, id, version1) {
+            //Bind C
+
+            var row = $("#WebGrid TBODY tr:eq(0)");
+            if ($("#WebGrid TBODY tr").length >= 0) {
+
+                //Bind Name.
+                $(".version1", row).find(".label").html(version1);
+                $(".version1", row).find(".text").val(version1);
+
+                //Bind Name.
+                $(".id", row).find(".label").html(id);
+                $(".id", row).find(".text").val(id);
+
+            } else {
+                row.find(".label").html("");
+                row.find(".text").val("");
+                row.find(".link").hide();
+            }
+      
+
+
+            //Bind Name.
+            $(".version1", row).find(".label").html(version1);
+            $(".version1", row).find(".text").val(version1);
+
+            //Bind Name.
+            $(".id", row).find(".label").html(id);
+            $(".id", row).find(".text").val(id);
+
+            //Bind Country.
+          
+            row.find(".link").show();
+            $("#WebGrid TBODY").append(row);
+        };
+
+        //Add event handler.
+        $("body").on("click", "#btnAdd", function () {
+            var txtName = $("#version1");
+            $.ajax({
+                type: "POST",
+                url: "/versions/InsererVersion",
+                data: '{version1: "' +txtCountry.value+ '" }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+                    var row = $("#WebGrid TBODY tr:last-child").clone();
+                    if (row.find(".label").is(":empty")) {
+                        $("#WebGrid TBODY tr:last-child").remove();
+                    }
+                    var i = r.id + 1;
+                   
+                    AppendRow(row,r.id, r.version1);
+                 
+                    txtCountry.value="";
+                }
+            });
+        });
+
+
+
+        $("body").on("click", "#WebGrid TBODY .show", function () {
+            var row = $(this).closest("tr");
+            $("td", row).each(function () {
+                if ($(this).find(".text").length > 0) {
+                    var span = $(this).find(".label");
+                    var input = $(this).find(".text");
+                    span.html(input.val());
+                    span.show();
+                    input.hide();
+                }
+            });
+            row.find(".Edit").show();
+            row.find(".Delete").show();
+            row.find(".Cancel").hide();
+            $(this).hide();
+
+            var customer = {};
+            customer.id = row.find(".id").find(".label").html();
+            customer.version1 = row.find(".version1").find(".label").html();
+            alert(customer.version1);
+            var url = '@Url.Action("Index", "table_", new { id = "placeholder" })'
+            url.replace("placeholder", customer.id);
+            window.location = '/table_/Index/?id=' + customer.id,
+            $.ajax({
+               
+                
+               
+                
+                
+            })
+        });
+        
+      
+    </script>
+</body>
+</html>

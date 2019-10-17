@@ -1,0 +1,42 @@
+﻿@model GestionViager.Models.affectation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>affectation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fonds1.fonds1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fonds1.fonds1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Propriete1.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Propriete1.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

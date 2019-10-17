@@ -1,0 +1,77 @@
+﻿@model GestionViager.Models.table_
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Table Daubry</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cible, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-xs-4">
+                @Html.EditorFor(model => model.Cible, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cible, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HOMME___âge, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-xs-4">
+                @Html.EditorFor(model => model.HOMME___âge, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HOMME___âge, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FEMME___âge, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-xs-4">
+                @Html.EditorFor(model => model.FEMME___âge, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FEMME___âge, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Espérance, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-xs-4">
+                @Html.EditorFor(model => model.Espérance, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Espérance, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tx_rente, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-xs-4">
+                @Html.EditorFor(model => model.tx_rente, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.tx_rente, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dt_us_, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-xs-4">
+                @Html.EditorFor(model => model.dt_us_, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dt_us_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

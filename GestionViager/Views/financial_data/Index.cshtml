@@ -1,0 +1,75 @@
+﻿@model IEnumerable<GestionViager.Models.financial_data>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.vvl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prix_m)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vvo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.decote_occupation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.decote_totale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bouquet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bouquet_vvl)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.vvl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prix_m)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vvo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.decote_occupation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.decote_totale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bouquet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bouquet_vvl)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

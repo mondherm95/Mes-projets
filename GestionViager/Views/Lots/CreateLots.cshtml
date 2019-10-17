@@ -1,0 +1,245 @@
+﻿@model GestionViager.Models.Lots
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@{
+    Layout = null;
+}
+
+@{
+    var p = ViewData["id"] as GestionViager.Models.Propriete;
+}
+
+
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 | Simple Tables</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+
+<body>
+
+
+
+
+
+    @using (Html.BeginForm("CreateLots", "Lots", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("CreateLots", "Lots", new { id = 0 }) }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            @if (p != null)
+            {
+            @Html.EditorFor(model => model.id_Propriete, new { htmlAttributes = new { @Value = p.id, @type = "hidden", @class = "form-control" } })
+            }
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.surface, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-xs-3">
+                    @Html.EditorFor(model => model.surface, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.surface, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.etage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-xs-3">
+                    @Html.EditorFor(model => model.etage, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.etage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.nature_lot, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-xs-3">
+                    @Html.EditorFor(model => model.nature_lot, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.nature_lot, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.carrez, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-xs-3">
+                    <div class="checkbox" id="terrasse">
+                        @Html.CheckBoxFor(model => model.carrez, true)
+                        @Html.ValidationMessageFor(model => model.carrez, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.balcon, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-xs-3">
+                    <div class="checkbox" id="balcon">
+                        @Html.CheckBoxFor(model => model.balcon, true)
+                        @Html.ValidationMessageFor(model => model.balcon, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" id="surface_balcon">
+                @Html.LabelFor(model => model.surface_balcon, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-xs-3">
+                    @Html.EditorFor(model => model.surface_balcon, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.surface_balcon, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.jardin, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-xs-3">
+                    <div class="checkbox" id="jardin">
+                        @Html.CheckBoxFor(model => model.jardin, true)
+                        @Html.ValidationMessageFor(model => model.jardin, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" id="surface_jardin">
+                @Html.LabelFor(model => model.surface_jardin, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-xs-3">
+                    @Html.EditorFor(model => model.surface_jardin, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.surface_jardin, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.terrasse, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-xs-3">
+                    <div class="checkbox" id="terrasse">
+                        @Html.CheckBoxFor(model => model.terrasse, true)
+                        @Html.ValidationMessageFor(model => model.terrasse, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" id="surface_terrasse">
+                @Html.LabelFor(model => model.surface_terrasse, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-xs-3">
+                    @Html.EditorFor(model => model.surface_terrasse, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.surface_terrasse, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.commentaire, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-xs-3">
+                    @Html.EditorFor(model => model.commentaire, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.commentaire, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-bitbucket" />
+                </div>
+            </div>
+        </div>
+    }
+
+   
+
+
+    
+    <!-- jQuery 3 -->
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Select2 -->
+
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+            $(document).ready(function () {
+
+                $("#surface_balcon").hide(0);
+                $("#surface_terrasse").hide(0);
+                $("#surface_jardin").hide(0);
+
+
+                $('#balcon').click(function () {
+                    if ($('#balcon:checked').length > 0) {
+                        $("#surface_balcon").show();
+                    } else {
+                        $("#surface_balcon").hide(0);
+                    }
+                });
+
+                $('#terrasse').click(function () {
+                    if ($("#terrasse:checked").length > 0) {
+                        $("#surface_terrasse").show();
+                    } else {
+                        $("#surface_terrasse").hide(0);
+                    }
+                });
+
+                $('#jardin').click(function () {
+                    if ($('#jardin:checked').length > 0) {
+                        $("#surface_jardin").show();
+                    } else {
+                        $("#surface_jardin").hide(0);
+                    }
+                });
+
+            });
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+

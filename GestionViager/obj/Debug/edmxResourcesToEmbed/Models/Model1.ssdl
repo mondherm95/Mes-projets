@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GestionImmobilierModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="affectation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="value" Type="float" />
+    <Property Name="fonds" Type="int" />
+    <Property Name="propriete" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comite">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_finance" Type="int" />
+    <Property Name="etat" Type="nvarchar" MaxLength="50" />
+    <Property Name="date_comite" Type="date" />
+    <Property Name="type_comite" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_folder" Type="bigint" />
+    <Property Name="statut" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="financial_data">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vvl" Type="float" />
+    <Property Name="prix_m" Type="float" />
+    <Property Name="vvo" Type="float" />
+    <Property Name="vf" Type="float" />
+    <Property Name="decote_occupation" Type="float" />
+    <Property Name="decote_totale" Type="float" />
+    <Property Name="bouquet" Type="float" />
+    <Property Name="bouquet_vvl" Type="float" />
+    <Property Name="propriete" Type="int" />
+  </EntityType>
+  <EntityType Name="folder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="contributor" Type="nvarchar(max)" />
+    <Property Name="folder_code" Type="nvarchar(max)" />
+    <Property Name="created_at" Type="date" />
+    <Property Name="created_by" Type="nvarchar" MaxLength="100" />
+    <Property Name="state" Type="nchar" MaxLength="30" />
+    <Property Name="version" Type="int" />
+  </EntityType>
+  <EntityType Name="fonds">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fonds" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Lots">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Propriete" Type="int" />
+    <Property Name="surface" Type="float" />
+    <Property Name="etage" Type="int" />
+    <Property Name="nature_lot" Type="nchar" MaxLength="10" />
+    <Property Name="carrez" Type="bit" Nullable="false" />
+    <Property Name="balcon" Type="bit" Nullable="false" />
+    <Property Name="surface_balcon" Type="float" />
+    <Property Name="terrasse" Type="bit" Nullable="false" />
+    <Property Name="surface_terrasse" Type="float" />
+    <Property Name="jardin" Type="bit" Nullable="false" />
+    <Property Name="surface_jardin" Type="float" />
+    <Property Name="commentaire" Type="nchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Propriete">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="region" Type="nvarchar" MaxLength="50" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" />
+    <Property Name="add1" Type="nvarchar" MaxLength="50" />
+    <Property Name="add2" Type="nvarchar" MaxLength="50" />
+    <Property Name="add3" Type="nvarchar" MaxLength="50" />
+    <Property Name="zip_Code" Type="int" />
+    <Property Name="bien" Type="nchar" MaxLength="10" />
+    <Property Name="area" Type="float" />
+    <Property Name="type" Type="int" />
+    <Property Name="id_folder" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="table$">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Cible" Type="nvarchar" MaxLength="255" />
+    <Property Name="HOMME - âge" Type="float" />
+    <Property Name="FEMME - âge" Type="float" />
+    <Property Name="Espérance" Type="float" />
+    <Property Name="tx rente" Type="float" />
+    <Property Name="dt us#" Type="float" />
+    <Property Name="F7" Type="nvarchar" MaxLength="255" />
+    <Property Name="F8" Type="nvarchar" MaxLength="255" />
+    <Property Name="F9" Type="nvarchar" MaxLength="255" />
+    <Property Name="F10" Type="nvarchar" MaxLength="255" />
+    <Property Name="F11" Type="nvarchar" MaxLength="255" />
+    <Property Name="F12" Type="nvarchar" MaxLength="255" />
+    <Property Name="F13" Type="nvarchar" MaxLength="255" />
+    <Property Name="F14" Type="float" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tiers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lastname" Type="nchar" MaxLength="10" />
+    <Property Name="firstname" Type="nchar" MaxLength="10" />
+    <Property Name="age" Type="int" />
+    <Property Name="phone" Type="bigint" />
+    <Property Name="birth_date" Type="date" />
+    <Property Name="confirmation_date" Type="date" />
+    <Property Name="credirentier" Type="bit" />
+    <Property Name="death_date" Type="date" />
+    <Property Name="esperance_vie_initiale" Type="float" />
+    <Property Name="gender" Type="nchar" MaxLength="5" />
+    <Property Name="phone2" Type="bigint" />
+    <Property Name="esperance_vie_actuelle" Type="float" />
+    <Property Name="id_folder" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="libelle" Type="nchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+    <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="age" Type="int" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="role" Type="int" />
+  </EntityType>
+  <EntityType Name="version">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="version1">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Cible" Type="nvarchar" MaxLength="255" />
+    <Property Name="HOMME - âge" Type="float" />
+    <Property Name="FEMME - âge" Type="float" />
+    <Property Name="Espérance" Type="float" />
+    <Property Name="tx rente" Type="float" />
+    <Property Name="dt us#" Type="float" />
+    <Property Name="F7" Type="nvarchar" MaxLength="255" />
+    <Property Name="F8" Type="nvarchar" MaxLength="255" />
+    <Property Name="F9" Type="nvarchar" MaxLength="255" />
+    <Property Name="F10" Type="nvarchar" MaxLength="255" />
+    <Property Name="F11" Type="nvarchar" MaxLength="255" />
+    <Property Name="F12" Type="nvarchar" MaxLength="255" />
+    <Property Name="F13" Type="nvarchar" MaxLength="255" />
+    <Property Name="F14" Type="float" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_affectation_fonds">
+    <End Role="fonds" Type="Self.fonds" Multiplicity="0..1" />
+    <End Role="affectation" Type="Self.affectation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fonds">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="affectation">
+        <PropertyRef Name="fonds" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_affectation_Propriete">
+    <End Role="Propriete" Type="Self.Propriete" Multiplicity="0..1" />
+    <End Role="affectation" Type="Self.affectation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Propriete">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="affectation">
+        <PropertyRef Name="propriete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comite_financial_data">
+    <End Role="financial_data" Type="Self.financial_data" Multiplicity="0..1" />
+    <End Role="Comite" Type="Self.Comite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="financial_data">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Comite">
+        <PropertyRef Name="id_finance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comite_folder">
+    <End Role="folder" Type="Self.folder" Multiplicity="0..1" />
+    <End Role="Comite" Type="Self.Comite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="folder">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Comite">
+        <PropertyRef Name="id_folder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_financial_data_Propriete">
+    <End Role="Propriete" Type="Self.Propriete" Multiplicity="0..1" />
+    <End Role="financial_data" Type="Self.financial_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Propriete">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="financial_data">
+        <PropertyRef Name="propriete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_folder_version">
+    <End Role="version" Type="Self.version" Multiplicity="0..1" />
+    <End Role="folder" Type="Self.folder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="version">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="folder">
+        <PropertyRef Name="version" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lots_Propriete">
+    <End Role="Propriete" Type="Self.Propriete" Multiplicity="0..1" />
+    <End Role="Lots" Type="Self.Lots" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Propriete">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Lots">
+        <PropertyRef Name="id_Propriete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Propriete_folder">
+    <End Role="folder" Type="Self.folder" Multiplicity="0..1" />
+    <End Role="Propriete" Type="Self.Propriete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="folder">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Propriete">
+        <PropertyRef Name="id_folder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Propriete_Type">
+    <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+    <End Role="Propriete" Type="Self.Propriete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Propriete">
+        <PropertyRef Name="type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tiers_folder">
+    <End Role="folder" Type="Self.folder" Multiplicity="0..1" />
+    <End Role="tiers" Type="Self.tiers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="folder">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tiers">
+        <PropertyRef Name="id_folder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GestionImmobilierModelStoreContainer">
+    <EntitySet Name="affectation" EntityType="Self.affectation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comite" EntityType="Self.Comite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="financial_data" EntityType="Self.financial_data" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="folder" EntityType="Self.folder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fonds" EntityType="Self.fonds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lots" EntityType="Self.Lots" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Propriete" EntityType="Self.Propriete" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="table$" EntityType="Self.table$" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tiers" EntityType="Self.tiers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="version" EntityType="Self.version" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="version1" EntityType="Self.version1" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_affectation_fonds" Association="Self.FK_affectation_fonds">
+      <End Role="fonds" EntitySet="fonds" />
+      <End Role="affectation" EntitySet="affectation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_affectation_Propriete" Association="Self.FK_affectation_Propriete">
+      <End Role="Propriete" EntitySet="Propriete" />
+      <End Role="affectation" EntitySet="affectation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comite_financial_data" Association="Self.FK_Comite_financial_data">
+      <End Role="financial_data" EntitySet="financial_data" />
+      <End Role="Comite" EntitySet="Comite" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comite_folder" Association="Self.FK_Comite_folder">
+      <End Role="folder" EntitySet="folder" />
+      <End Role="Comite" EntitySet="Comite" />
+    </AssociationSet>
+    <AssociationSet Name="FK_financial_data_Propriete" Association="Self.FK_financial_data_Propriete">
+      <End Role="Propriete" EntitySet="Propriete" />
+      <End Role="financial_data" EntitySet="financial_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_folder_version" Association="Self.FK_folder_version">
+      <End Role="version" EntitySet="version" />
+      <End Role="folder" EntitySet="folder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lots_Propriete" Association="Self.FK_Lots_Propriete">
+      <End Role="Propriete" EntitySet="Propriete" />
+      <End Role="Lots" EntitySet="Lots" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Propriete_folder" Association="Self.FK_Propriete_folder">
+      <End Role="folder" EntitySet="folder" />
+      <End Role="Propriete" EntitySet="Propriete" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Propriete_Type" Association="Self.FK_Propriete_Type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="Propriete" EntitySet="Propriete" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tiers_folder" Association="Self.FK_tiers_folder">
+      <End Role="folder" EntitySet="folder" />
+      <End Role="tiers" EntitySet="tiers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

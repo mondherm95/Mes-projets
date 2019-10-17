@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GestionImmobilierModelStoreContainer" CdmEntityContainer="GestionImmobilierEntities">
+    <EntitySetMapping Name="affectation">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.affectation">
+        <MappingFragment StoreEntitySet="affectation">
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="fonds" ColumnName="fonds" />
+          <ScalarProperty Name="propriete" ColumnName="propriete" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comite">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.Comite">
+        <MappingFragment StoreEntitySet="Comite">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_finance" ColumnName="id_finance" />
+          <ScalarProperty Name="etat" ColumnName="etat" />
+          <ScalarProperty Name="date_comite" ColumnName="date_comite" />
+          <ScalarProperty Name="type_comite" ColumnName="type_comite" />
+          <ScalarProperty Name="id_folder" ColumnName="id_folder" />
+          <ScalarProperty Name="statut" ColumnName="statut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="financial_data">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.financial_data">
+        <MappingFragment StoreEntitySet="financial_data">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="vvl" ColumnName="vvl" />
+          <ScalarProperty Name="prix_m" ColumnName="prix_m" />
+          <ScalarProperty Name="vvo" ColumnName="vvo" />
+          <ScalarProperty Name="vf" ColumnName="vf" />
+          <ScalarProperty Name="decote_occupation" ColumnName="decote_occupation" />
+          <ScalarProperty Name="decote_totale" ColumnName="decote_totale" />
+          <ScalarProperty Name="bouquet" ColumnName="bouquet" />
+          <ScalarProperty Name="bouquet_vvl" ColumnName="bouquet_vvl" />
+          <ScalarProperty Name="propriete" ColumnName="propriete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="folder">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.folder">
+        <MappingFragment StoreEntitySet="folder">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="contributor" ColumnName="contributor" />
+          <ScalarProperty Name="folder_code" ColumnName="folder_code" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="version" ColumnName="version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fonds">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.fonds">
+        <MappingFragment StoreEntitySet="fonds">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fonds1" ColumnName="fonds" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lots">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.Lots">
+        <MappingFragment StoreEntitySet="Lots">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_Propriete" ColumnName="id_Propriete" />
+          <ScalarProperty Name="surface" ColumnName="surface" />
+          <ScalarProperty Name="etage" ColumnName="etage" />
+          <ScalarProperty Name="nature_lot" ColumnName="nature_lot" />
+          <ScalarProperty Name="carrez" ColumnName="carrez" />
+          <ScalarProperty Name="balcon" ColumnName="balcon" />
+          <ScalarProperty Name="surface_balcon" ColumnName="surface_balcon" />
+          <ScalarProperty Name="terrasse" ColumnName="terrasse" />
+          <ScalarProperty Name="surface_terrasse" ColumnName="surface_terrasse" />
+          <ScalarProperty Name="jardin" ColumnName="jardin" />
+          <ScalarProperty Name="surface_jardin" ColumnName="surface_jardin" />
+          <ScalarProperty Name="commentaire" ColumnName="commentaire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Propriete">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.Propriete">
+        <MappingFragment StoreEntitySet="Propriete">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="add1" ColumnName="add1" />
+          <ScalarProperty Name="add2" ColumnName="add2" />
+          <ScalarProperty Name="add3" ColumnName="add3" />
+          <ScalarProperty Name="zip_Code" ColumnName="zip_Code" />
+          <ScalarProperty Name="bien" ColumnName="bien" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="id_folder" ColumnName="id_folder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="table_">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.table_">
+        <MappingFragment StoreEntitySet="table$">
+          <ScalarProperty Name="Cible" ColumnName="Cible" />
+          <ScalarProperty Name="HOMME___âge" ColumnName="HOMME - âge" />
+          <ScalarProperty Name="FEMME___âge" ColumnName="FEMME - âge" />
+          <ScalarProperty Name="Espérance" ColumnName="Espérance" />
+          <ScalarProperty Name="tx_rente" ColumnName="tx rente" />
+          <ScalarProperty Name="dt_us_" ColumnName="dt us#" />
+          <ScalarProperty Name="F7" ColumnName="F7" />
+          <ScalarProperty Name="F8" ColumnName="F8" />
+          <ScalarProperty Name="F9" ColumnName="F9" />
+          <ScalarProperty Name="F10" ColumnName="F10" />
+          <ScalarProperty Name="F11" ColumnName="F11" />
+          <ScalarProperty Name="F12" ColumnName="F12" />
+          <ScalarProperty Name="F13" ColumnName="F13" />
+          <ScalarProperty Name="F14" ColumnName="F14" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tiers">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.tiers">
+        <MappingFragment StoreEntitySet="tiers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+          <ScalarProperty Name="confirmation_date" ColumnName="confirmation_date" />
+          <ScalarProperty Name="credirentier" ColumnName="credirentier" />
+          <ScalarProperty Name="death_date" ColumnName="death_date" />
+          <ScalarProperty Name="esperance_vie_initiale" ColumnName="esperance_vie_initiale" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="phone2" ColumnName="phone2" />
+          <ScalarProperty Name="esperance_vie_actuelle" ColumnName="esperance_vie_actuelle" />
+          <ScalarProperty Name="id_folder" ColumnName="id_folder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Type">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.Type">
+        <MappingFragment StoreEntitySet="Type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="libelle" ColumnName="libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="version">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.version">
+        <MappingFragment StoreEntitySet="version">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="version1" ColumnName="version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="version1">
+      <EntityTypeMapping TypeName="GestionImmobilierModel.version1">
+        <MappingFragment StoreEntitySet="version1">
+          <ScalarProperty Name="Cible" ColumnName="Cible" />
+          <ScalarProperty Name="HOMME___âge" ColumnName="HOMME - âge" />
+          <ScalarProperty Name="FEMME___âge" ColumnName="FEMME - âge" />
+          <ScalarProperty Name="Espérance" ColumnName="Espérance" />
+          <ScalarProperty Name="tx_rente" ColumnName="tx rente" />
+          <ScalarProperty Name="dt_us_" ColumnName="dt us#" />
+          <ScalarProperty Name="F7" ColumnName="F7" />
+          <ScalarProperty Name="F8" ColumnName="F8" />
+          <ScalarProperty Name="F9" ColumnName="F9" />
+          <ScalarProperty Name="F10" ColumnName="F10" />
+          <ScalarProperty Name="F11" ColumnName="F11" />
+          <ScalarProperty Name="F12" ColumnName="F12" />
+          <ScalarProperty Name="F13" ColumnName="F13" />
+          <ScalarProperty Name="F14" ColumnName="F14" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

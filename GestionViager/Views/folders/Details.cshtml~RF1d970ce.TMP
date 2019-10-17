@@ -1,0 +1,66 @@
+﻿@model GestionViager.Models.folder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+@{
+
+    var id = Model.id;
+}
+
+<br />
+<ul class="nav nav-tabs" id="menu">
+    <li>
+        <a data-toggle="tab" id="tiers" href="#Tiers">Tiers</a>
+
+    </li>
+
+</ul>
+<div class="tab-content">
+    <div id="Tiers" class="tab-pane fade in active">@Html.Action("Save","tiers")</div>
+
+</div>
+
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+        function activatejQueryTable() {
+            $("#employeeTable").DataTable();
+        }
+
+        $(function () {
+            activatejQueryTable();
+        })
+
+
+  $(document).ready(function(){
+      $("#sous").hide(0);
+      $("#sousPropriete").hide(0);
+
+      $("#tiers").click(function () {
+      $("#sous").show();
+      $("#sousPropriete").hide(0);
+
+
+  });
+  $("#Propriete").click(function () {
+      $("#sous").hide(0);
+      $("#sousPropriete").show();
+
+  });
+
+ //otherTab is the class for the tabs other than tab1
+
+
+});
+
+
+    </script>
+}

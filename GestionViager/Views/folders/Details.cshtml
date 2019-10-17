@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@{ 
+    var p = ViewData["tier"] as GestionViager.Models.tiers;
+}
+
+
+<br />
+<div class="box box-info">
+
+    <ul class="nav nav-tabs" id="menu">
+        <li class="active">
+            <a data-toggle="tab" id="tiers" href="#Tiers">Tiers</a>
+        </li>
+
+        <li>
+            <a data-toggle="tab" id="Propriete" href="#propriete">Propriete</a>
+            <ul class="nav nav-tabs" id="sousPropriete">
+                <li><a data-toggle="tab" href="#lots">Lots</a></li>
+                <li><a data-toggle="tab" href="#fonds">Fonds</a></li>
+                <li><a data-toggle="tab" href="#affectation">Affectations</a></li>
+            </ul>
+
+
+        </li>
+
+       
+            <li>
+                <a data-toggle="tab" id="viagers" href="#Viagers">Paramètres du dossier</a>
+            </li>
+
+        
+    </ul>
+    <div class="tab-content">
+        <div id="Tiers" class="tab-pane fade in active">@Html.Action("Save", "tiers", new { id = Model.id })</div>
+        <div id="propriete" class="tab-pane fade in">@Html.Action("Create", "Proprietes", new { id = Model.id })</div>
+
+        <div id="lots" class="tab-pane fade in">@Html.Action("CreateLots", "Lots", new { id = Model.id })</div>
+        <div id="fonds" class="tab-pane fade in">@Html.Action("CreateFonds", "fonds", new { id = Model.id })</div>
+        <div id="affectation" class="tab-pane fade in">@Html.Action("CreateAffectation", "affectations", new { id = Model.id })</div>
+        <div id="Viagers" class="tab-pane fade in">@Html.Action("Create", "financial_data", new { id = Model.id })</div>
+
+
+
+    </div>
+</div>
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+    @section scripts{
+        @Scripts.Render("~/bundles/jqueryval")
+
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+        <script>
+            function activatejQueryTable() {
+                $("#employeeTable").DataTable();
+            }
+
+            $(function () {
+                activatejQueryTable();
+            })
+
+            $("#tiers").click(function () {
+                $("#sous").show();
+                $("#sousPropriete").hide(0);
+
+
+            });
+
+            $("#Propriete").click(function () {
+                $("#sous").hide(0);
+                $("#sousPropriete").show();
+
+
+            });
+
+            $("#viagers").click(function () {
+                $("#sous").hide(0);
+                $("#sousPropriete").hide(0);
+
+
+            });
+
+
+
+            $(document).ready(function () {
+                $("#sous").hide(0);
+                $("#sousPropriete").hide(0);
+
+
+
+
+
+            });
+
+           
+        </script>
+    }

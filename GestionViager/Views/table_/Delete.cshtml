@@ -1,0 +1,136 @@
+﻿@model GestionViager.Models.table_
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>table_</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cible)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cible)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOMME___âge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOMME___âge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FEMME___âge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FEMME___âge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Espérance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Espérance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tx_rente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tx_rente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dt_us_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dt_us_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.F7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.F7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.F8)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.F8)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.F9)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.F9)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.F10)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.F10)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.F11)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.F11)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.F12)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.F12)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.F13)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.F13)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.F14)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.F14)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,178 @@
+﻿@model GestionViager.Models.Lots
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@{
+    var p = ViewData["id"] as GestionViager.Models.Propriete;
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Lots</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.EditorFor(model => model.id_Propriete, new { htmlAttributes = new { @Value = p.id, @type = "hidden", @class = "form-control" } })
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.surface, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.surface, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.surface, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.etage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.etage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.etage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nature_lot, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nature_lot, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nature_lot, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.carrez, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox" id="terrasse">
+                    @Html.CheckBoxFor(model => model.carrez, true)
+                    @Html.ValidationMessageFor(model => model.carrez, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.balcon, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox" id="balcon">
+                    @Html.CheckBoxFor(model => model.balcon, true)
+                    @Html.ValidationMessageFor(model => model.balcon, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" id="surface_balcon">
+            @Html.LabelFor(model => model.surface_balcon, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.surface_balcon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.surface_balcon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.jardin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox" id="jardin">
+                    @Html.CheckBoxFor(model => model.jardin, true)
+                    @Html.ValidationMessageFor(model => model.jardin, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" id="surface_jardin">
+            @Html.LabelFor(model => model.surface_jardin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.surface_jardin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.surface_jardin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.terrasse, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox" id="terrasse">
+                    @Html.CheckBoxFor(model => model.terrasse, true)
+                    @Html.ValidationMessageFor(model => model.terrasse, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" id="surface_terrasse">
+            @Html.LabelFor(model => model.surface_terrasse, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.surface_terrasse, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.surface_terrasse, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.commentaire, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.commentaire, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.commentaire, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+       $(document).ready(function(){
+
+           $("#surface_balcon").hide(0);
+           $("#surface_terrasse").hide(0);
+           $("#surface_jardin").hide(0);
+
+
+           $('#balcon').click(function () {
+               if ($('#balcon:checked').length > 0) {
+                   $("#surface_balcon").show();
+               } else {
+                   $("#surface_balcon").hide(0);
+               }
+           });
+
+           $('#terrasse').click(function () {
+               if ($("#terrasse:checked").length > 0) {
+                   $("#surface_terrasse").show();
+               } else {
+                   $("#surface_terrasse").hide(0);
+               }
+           });
+
+           $('#jardin').click(function () {
+               if ($('#jardin:checked').length > 0) {
+                   $("#surface_jardin").show();
+               } else {
+                   $("#surface_jardin").hide(0);
+               }
+           });
+
+       });
+
+    </script>
+}
